@@ -5,34 +5,37 @@ import styles from './styles.css';
 
 const VideoIframe = ({isShow, plataform, videoId, width, height, autoplay, loop, mute, controls}) => {
 
+    const plataformLowerCase = plataform.toLowerCase();
+
     return useMemo(() =>{
         return (
                 <div>
-                
-                    {
-                        plataform.toLowerCase() === 'youtube' && isShow === true ? 
-
-                        <VideoYoutube 
-                            plataform={plataform.toLowerCase()}
+                {
+                    isShow ?
+                        <>{plataformLowerCase === 'youtube' ?
+                            <VideoYoutube 
+                            plataform={plataformLowerCase}
                             videoId={videoId}
                             width={width} 
                             height={height} 
                             autoplay={autoplay}
                             loop={loop}
                             mute={mute}
-                            controls={controls}
-                        /> 
-                         :                         
-                         <VideoVimeo
-                            plataform={plataform.toLowerCase()}
+                            controls={controls}/> 
+                        : 
+                        <>{plataformLowerCase === 'vimeo' ?
+                            <VideoVimeo
+                            plataform={plataformLowerCase}
                             videoId={videoId}
                             width={width} 
                             height={height} 
                             autoplay={autoplay}
                             loop={loop}
-                            mute={mute}
-                        />
-                    }
+                            mute={mute}/>               
+                        : <></>
+                        }</>
+                    }</> : <div>Ingresa un video de youtube o vimeo</div>
+                }
                 </div>
         )
     },[isShow, plataform, videoId, width, height, autoplay, loop, mute, controls])
