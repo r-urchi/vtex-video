@@ -3,10 +3,12 @@ import VideoYoutube from './components/VideoYoutube';
 import VideoVimeo from './components/VideoVimeo'
 import styles from './styles.css';
 
-const VideoIframe = ({isShow, plataform, videoId, width, height, autoplay, loop, mute, controls}) => {
+const VideoIframe = (props) => {
 
+    const {isShow, plataform, videoId, width, height, autoplay, loop, mute, controls} = props;
     const plataformLowerCase = plataform.toLowerCase();
 
+    console.log(props)
     return useMemo(() =>{
         return (
                 <div>
@@ -38,7 +40,7 @@ const VideoIframe = ({isShow, plataform, videoId, width, height, autoplay, loop,
                 }
                 </div>
         )
-    },[isShow, plataform, videoId, width, height, autoplay, loop, mute, controls])
+    },[props])
 }
 
 VideoIframe.schema = {

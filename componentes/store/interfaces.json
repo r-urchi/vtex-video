@@ -1,5 +1,36 @@
 {
   "glamit-component-video-iframe":{
-    "component": "VideoIframe"
-  }
+    "component": "VideoIframe",
+    "content":{
+      "properties":{
+        "isShow": {
+          "default": true
+        },
+        "plataform": {
+          "default": ""
+        },
+        "videoId": {
+          "default": ""
+        },
+        "width": {
+          "default": "100%"
+        },
+        "height": {
+          "default": "800px"
+        },
+        "autoplay": {
+          "default": true
+        },
+        "loop": {
+          "default": true
+        },
+        "mute": {
+          "default": true
+        },
+        "controls": {
+          "default": false
+        }
+      }
+    }
+  } 
 }
