@@ -11,33 +11,34 @@ const VideoIframe = (props) => {
     console.log(props)
     return useMemo(() =>{
         return (
-                <div>
-                {
-                    isShow ?
-                        <>{plataformLowerCase === 'youtube' ?
+                <div className={styles.ContainerVideoPlayer}>
+                    {
+                    isShow 
+                    ?
+                        <div className={styles.ContainerVideo}>{plataformLowerCase === 'youtube' ? 
                             <VideoYoutube 
-                            plataform={plataformLowerCase}
-                            videoId={videoId}
-                            width={width} 
-                            height={height} 
-                            autoplay={autoplay}
-                            loop={loop}
-                            mute={mute}
-                            controls={controls}/> 
-                        : 
-                        <>{plataformLowerCase === 'vimeo' ?
-                            <VideoVimeo
-                            plataform={plataformLowerCase}
-                            videoId={videoId}
-                            width={width} 
-                            height={height} 
-                            autoplay={autoplay}
-                            loop={loop}
-                            mute={mute}/>               
-                        : <></>
-                        }</>
-                    }</> : <div>Ingresa un video de youtube o vimeo</div>
-                }
+                                plataform={plataformLowerCase} 
+                                videoId={videoId} 
+                                width={width} 
+                                height={height} 
+                                autoplay={autoplay} 
+                                loop={loop} 
+                                mute={mute} 
+                                controls={controls}/> 
+                        :  
+                        <div className={styles.ContainerVideo}>{plataformLowerCase === 'vimeo' ? 
+                            <VideoVimeo plataform={plataformLowerCase} 
+                                videoId={videoId} 
+                                width={width} 
+                                height={height} 
+                                autoplay={autoplay} 
+                                loop={loop} 
+                                mute={mute}/> 
+                                : <>Ingresa un video de youtube o vimeo</>}
+                            </div>}
+                        </div> 
+                    : <></>
+                    }
                 </div>
         )
     },[props])
