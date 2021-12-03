@@ -37,7 +37,8 @@ const VideoIframe = (props) => {
                                 : <>Ingresa un video de youtube o vimeo</>}
                             </div>}
                         </div> 
-                    : <></>
+                    : 
+                    <></>
                     }
                 </div>
         )

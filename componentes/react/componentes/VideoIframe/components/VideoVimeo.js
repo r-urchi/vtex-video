@@ -4,7 +4,7 @@ import styles from '../styles.css';
 const VideoVimeo = ({plataform, videoId, width, height, autoplay, loop, mute}) => {
 
     return (
-        <div >
+        <div className={styles.ContainerIframe}>
             <iframe 
             className={styles.VideoIframe}
             width={width} 
